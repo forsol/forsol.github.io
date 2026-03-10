@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VoltTJ — Tecnología & Energía Solar | Tijuana, BC</title>
-<meta name="description" content="VoltTJ — Tu tienda de tecnología en Tijuana. Paneles solares, microinversores, cámaras de seguridad, electrónicos y más. Envío a todo México.">
-<meta name="keywords" content="paneles solares tijuana, microinversores, camaras seguridad tijuana, energia solar baja california, electronica tijuana">
-<meta property="og:title" content="VoltTJ — Tecnología & Energía Solar Tijuana">
-<meta property="og:description" content="Paneles solares, microinversores, cámaras y electrónicos en Tijuana, BC.">
+<title>Forsol — Tecnología & Energía Solar | México</title>
+<meta name="description" content="Forsol — Tu tienda de tecnología en México. Paneles solares, microinversores, cámaras de seguridad, electrónicos y más. Envío a todo México.">
+<meta name="keywords" content="paneles solares, microinversores, camaras seguridad, energia solar, electronica">
+<meta property="og:title" content="Forsol — Tecnología & Energía Solar México">
+<meta property="og:description" content="Paneles solares, microinversores, cámaras y electrónicos. Envío a todo México.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -255,6 +255,15 @@ nav {
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   font-size: 18px;
+  /* CAMBIO: Usar la imagen del logo de Forsol */
+  background-image: url('https://i.imgur.com/YC9RQ2U.jpeg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+.logo-icon span {
+  display: none; /* Ocultar el ícono ⚡ */
 }
 .logo-text {
   font-family: var(--font-display);
@@ -1545,19 +1554,21 @@ footer {
 <div class="ticker-wrap">
   <div class="ticker-content" id="tickerContent">
     <span>Envío gratis en compras mayores a $3,000 MXN</span>
-    <span>Instalación profesional disponible en Tijuana y alrededores</span>
+    <span>Instalación profesional disponible</span>
     <span>Asesoría técnica gratuita: +52 661 128 2417</span>
     <span>Garantía extendida en todos nuestros productos</span>
     <span>Financiamiento disponible — pregunta por nuestros planes</span>
     <span>Distribuidores autorizados de las mejores marcas</span>
     <span>Envío a todo México con rastreo en tiempo real</span>
+    <span>Oficinas en Monterrey y Tijuana</span>
     <span>Envío gratis en compras mayores a $3,000 MXN</span>
-    <span>Instalación profesional disponible en Tijuana y alrededores</span>
+    <span>Instalación profesional disponible</span>
     <span>Asesoría técnica gratuita: +52 661 128 2417</span>
     <span>Garantía extendida en todos nuestros productos</span>
     <span>Financiamiento disponible — pregunta por nuestros planes</span>
     <span>Distribuidores autorizados de las mejores marcas</span>
     <span>Envío a todo México con rastreo en tiempo real</span>
+    <span>Oficinas en Monterrey y Tijuana</span>
   </div>
 </div>
 
@@ -1565,10 +1576,10 @@ footer {
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">
-      <div class="logo-icon">⚡</div>
+      <div class="logo-icon"><span>⚡</span></div>
       <div>
-        <div class="logo-text">Volt<span>TJ</span></div>
-        <div class="logo-sub">Tijuana, BC</div>
+        <div class="logo-text">Forsol</div>
+        <div class="logo-sub">México</div>
       </div>
     </a>
    <ul class="nav-links">
@@ -1601,7 +1612,7 @@ footer {
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
   <div style="margin-bottom:24px;">
-    <div class="logo-text" style="font-family:var(--font-display);font-size:24px;font-weight:700;">Volt<span style="color:var(--electric);">TJ</span></div>
+    <div class="logo-text" style="font-family:var(--font-display);font-size:24px;font-weight:700;">Forsol</div>
   </div>
   <ul>
   <li><a href="#inicio" onclick="closeMobileNav()">🏠 Inicio</a></li>
@@ -1625,14 +1636,14 @@ footer {
   <div class="hero-orb hero-orb-2"></div>
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-label">Tijuana, BC · Distribución Nacional</div>
+      <div class="hero-label">Monterrey · Tijuana · Distribución Nacional</div>
       <h1>
         Tecnología <span class="line-accent">Inteligente</span>
-        <span class="line-blue">Para Tu Mundo</span>
+        <span class="line-blue">Para Todo México</span>
       </h1>
       <p class="hero-sub">
         Paneles solares, microinversores, cámaras de seguridad y electrónicos de última generación. 
-        Precios de frontera, calidad garantizada, instalación en Tijuana y envío a todo México.
+        Oficinas en Monterrey y Tijuana, envíos a todo México.
       </p>
       <div class="hero-btns">
         <a href="#productos" class="btn-primary">🛍️ Ver Catálogo Completo</a>
@@ -1789,7 +1800,7 @@ footer {
       </div>
       <div class="calc-result">
         <h3 style="font-family:var(--font-display);font-size:20px;font-weight:700;margin-bottom:8px;">📊 Estimación de tu Sistema</h3>
-        <p style="font-size:13px;color:var(--gray-400);margin-bottom:4px;">Basado en radiación solar de Baja California</p>
+        <p style="font-size:13px;color:var(--gray-400);margin-bottom:4px;">Basado en radiación solar de México</p>
         <div class="result-grid">
           <div class="result-card">
             <div class="result-icon">☀️</div>
@@ -1826,9 +1837,9 @@ footer {
 <section id="nosotros">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div class="section-tag">¿Por qué VoltTJ?</div>
+      <div class="section-tag">¿Por qué Forsol?</div>
       <h2 class="section-title">Tu Aliado en <span class="accent">Tecnología</span></h2>
-      <p class="section-sub">Más de 8 años en Tijuana, BC. Conocemos el mercado, las marcas y tus necesidades.</p>
+      <p class="section-sub">Oficinas en Monterrey y Tijuana. Conocemos el mercado, las marcas y tus necesidades.</p>
     </div>
     <div class="why-grid">
       <div class="why-card reveal">
@@ -1842,7 +1853,7 @@ footer {
         <div class="why-icon">🔧</div>
         <div class="why-text">
           <h3>Instalación Certificada</h3>
-          <p>Técnicos certificados en Tijuana y área metropolitana. Instalamos lo que vendemos.</p>
+          <p>Técnicos certificados en Monterrey, Tijuana y área metropolitana. Instalamos lo que vendemos.</p>
         </div>
       </div>
       <div class="why-card reveal">
@@ -1869,8 +1880,8 @@ footer {
       <div class="why-card reveal">
         <div class="why-icon">🌐</div>
         <div class="why-text">
-          <h3>Precios de Frontera</h3>
-          <p>Por nuestra ubicación en Tijuana, accedemos a precios competitivos tanto en MXN como USD.</p>
+          <h3>Cobertura Nacional</h3>
+          <p>Oficinas en Monterrey y Tijuana para servirte mejor en todo México.</p>
         </div>
       </div>
     </div>
@@ -1896,7 +1907,7 @@ footer {
               </div>
             </div>
             <div class="test-stars">★★★★★</div>
-            <p class="test-text">"Instalé 8 paneles solares con microinversores Enphase. Mi recibo bajó de $4,200 a menos de $200. El equipo de VoltTJ fue muy profesional y puntual."</p>
+            <p class="test-text">"Instalé 8 paneles solares con microinversores Enphase. Mi recibo bajó de $4,200 a menos de $200. El equipo de Forsol fue muy profesional y puntual."</p>
             <span class="test-tag">Sistema Solar Residencial 4kW</span>
           </div>
           <div class="testimonial-card">
@@ -1904,7 +1915,7 @@ footer {
               <div class="test-avatar" style="background:linear-gradient(135deg,#00b4d8,#0077b6);">AG</div>
               <div>
                 <div class="test-name">Ana González</div>
-                <div class="test-city">Ensenada, BC</div>
+                <div class="test-city">Monterrey, NL</div>
               </div>
             </div>
             <div class="test-stars">★★★★★</div>
@@ -1920,7 +1931,7 @@ footer {
               </div>
             </div>
             <div class="test-stars">★★★★★</div>
-            <p class="test-text">"Tengo un negocio de refrigeración. Los paneles solares que instalé con VoltTJ me están ahorrando más de $8,000 al mes en electricidad. Inversión recuperada en 3 años."</p>
+            <p class="test-text">"Tengo un negocio de refrigeración. Los paneles solares que instalé con Forsol me están ahorrando más de $8,000 al mes en electricidad. Inversión recuperada en 3 años."</p>
             <span class="test-tag">Sistema Solar Comercial 10kW</span>
           </div>
           <div class="testimonial-card">
@@ -1940,11 +1951,11 @@ footer {
               <div class="test-avatar" style="background:linear-gradient(135deg,#2d6a4f,#1b4332);">MR</div>
               <div>
                 <div class="test-name">Miguel Reyes</div>
-                <div class="test-city">Rosarito, BC</div>
+                <div class="test-city">San Pedro, NL</div>
               </div>
             </div>
             <div class="test-stars">★★★★★</div>
-            <p class="test-text">"Instalé una batería LiFePO4 con mi sistema solar existente. Ahora tengo autonomía total incluso en los apagones. El equipo de VoltTJ me asesoró perfecto."</p>
+            <p class="test-text">"Instalé una batería LiFePO4 con mi sistema solar existente. Ahora tengo autonomía total incluso en los apagones. El equipo de Forsol me asesoró perfecto."</p>
             <span class="test-tag">Batería de Almacenamiento 10kWh</span>
           </div>
           <div class="testimonial-card">
@@ -1956,7 +1967,7 @@ footer {
               </div>
             </div>
             <div class="test-stars">★★★★★</div>
-            <p class="test-text">"Excelente servicio y los mejores precios que encontré en toda la región. Me enviaron todo perfectamente empacado y llegó en tiempo. Los volveré a contactar sin duda."</p>
+            <p class="test-text">"Excelente servicio y los mejores precios que encontré. Me enviaron todo perfectamente empacado y llegó en tiempo. Los volveré a contactar sin duda."</p>
             <span class="test-tag">Panel Solar + Microinversor</span>
           </div>
         </div>
@@ -1979,7 +1990,7 @@ footer {
     </div>
     <div class="contact-wrap reveal">
       <div class="contact-info">
-        <h3>Estamos en Tijuana,<br>listos para ayudarte</h3>
+        <h3>Estamos en Monterrey y Tijuana,<br>listos para ayudarte</h3>
         <div class="contact-item">
           <div class="contact-item-icon">📱</div>
           <div class="contact-item-text">
@@ -1991,14 +2002,14 @@ footer {
           <div class="contact-item-icon">📧</div>
           <div class="contact-item-text">
             <strong>Correo Electrónico</strong>
-            <span>contacto@volttj.com</span>
+            <span>contacto@forsol.mx</span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-item-icon">📍</div>
           <div class="contact-item-text">
             <strong>Ubicación</strong>
-            <span>Tijuana, Baja California, México</span>
+            <span>Monterrey, NL · Tijuana, BC · México</span>
           </div>
         </div>
         <div class="contact-item">
@@ -2069,12 +2080,12 @@ footer {
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="logo" style="display:inline-flex;margin-bottom:4px;">
-          <div class="logo-icon" style="width:32px;height:32px;font-size:16px;">⚡</div>
+          <div class="logo-icon" style="width:32px;height:32px;font-size:16px;"><span>⚡</span></div>
           <div>
-            <div class="logo-text" style="font-size:22px;">Volt<span>TJ</span></div>
+            <div class="logo-text" style="font-size:22px;">Forsol</div>
           </div>
         </a>
-        <p>Tu tienda de tecnología en Tijuana, BC. Paneles solares, microinversores, cámaras y electrónicos. Envío a todo México.</p>
+        <p>Tu tienda de tecnología en México. Paneles solares, microinversores, cámaras y electrónicos. Envío a todo México.</p>
         <div class="newsletter-row">
           <input type="email" class="newsletter-input" placeholder="Tu correo electrónico" id="newsletterEmail">
           <button class="newsletter-btn" onclick="subscribeNewsletter()">Suscribir</button>
@@ -2112,7 +2123,7 @@ footer {
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© <span id="footerYear"></span> VoltTJ · Tijuana, Baja California, México · Todos los derechos reservados</p>
+      <p>© <span id="footerYear"></span> Forsol · Monterrey, NL · Tijuana, BC · México · Todos los derechos reservados</p>
       <div class="payment-icons">
         <span class="payment-icon">VISA</span>
         <span class="payment-icon">MC</span>
@@ -2128,7 +2139,7 @@ footer {
 <!-- FLOATING WHATSAPP -->
 <div class="float-whatsapp">
   <span class="wa-tooltip">💬 Chatea con nosotros</span>
-  <a href="https://wa.me/526611282417?text=Hola%20VoltTJ%2C%20me%20interesa%20recibir%20información%20sobre%20sus%20productos." target="_blank" class="wa-btn">📱</a>
+  <a href="https://wa.me/526611282417?text=Hola%20Forsol%2C%20me%20interesa%20recibir%20información%20sobre%20sus%20productos." target="_blank" class="wa-btn">📱</a>
 </div>
 
 <!-- SCROLL TOP -->
@@ -2194,7 +2205,7 @@ footer {
 
 <script>
 // ── CONFIG ──
-const COUPONS = { 'VOLT10': 10, 'SOLAR15': 15, 'TJ20': 20, 'BAJA5': 5 };
+const COUPONS = { 'FORSOL10': 10, 'SOLAR15': 15, 'NACIONAL20': 20, 'BAJA5': 5 };
 const WA_NUM = '526611282417';
 // ⚠️ When deploying to Vercel, change this URL to your Vercel URL
 const API_URL = 'https://voltmx-backend.vercel.app';
@@ -2479,10 +2490,11 @@ async function loadProducts(catId, page = 1) {
   const loadBtn = document.getElementById('loadMoreBtn');
 
   if (page === 1) {
+    // CAMBIO: "Checando inventario" en lugar de "Cargando productos desde Syscom"
     grid.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--gray-400);">
         <div style="font-size:36px;margin-bottom:12px;animation:pulse 1.5s infinite;">⚡</div>
-        <p>Cargando productos desde Syscom...</p>
+        <p>Checando inventario...</p>
       </div>`;
   }
 
@@ -2507,7 +2519,7 @@ async function loadProducts(catId, page = 1) {
       <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--gray-400);">
         <div style="font-size:36px;margin-bottom:12px;">⚠️</div>
         <p style="margin-bottom:8px;">Error conectando con el servidor</p>
-        <p style="font-size:12px;">Asegúrate que el backend esté corriendo en localhost:3000</p>
+        <p style="font-size:12px;">Asegúrate que el backend esté corriendo</p>
         <button class="btn-secondary" style="margin-top:16px;" onclick="loadProducts('${catId}',1)">Reintentar</button>
       </div>`;
     document.getElementById('loadMoreBtn').style.display = 'none';
@@ -2868,7 +2880,7 @@ function checkout() {
   if (cart.length === 0) { showToast('⚠️ Tu carrito está vacío'); return; }
   const total = cart.reduce((s,i) => s + i.price * i.qty, 0);
   const disc = total * cartDiscount / 100;
-  let msg = `🛒 *Pedido VoltTJ*\n\n`;
+  let msg = `🛒 *Pedido Forsol*\n\n`;
   cart.forEach(i => { msg += `• ${i.name} x${i.qty} = $${(i.price*i.qty).toLocaleString('es-MX',{minimumFractionDigits:2})} MXN\n`; });
   msg += `\n💰 *Total: $${Math.round(total-disc).toLocaleString('es-MX',{minimumFractionDigits:2})} MXN*`;
   if (cartDiscount > 0) msg += ` (descuento ${cartDiscount}% aplicado)`;
