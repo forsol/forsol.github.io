@@ -238,23 +238,23 @@ nav {
   display: flex;
   align-items: center;
   gap: 24px;
-  height: 68px;
+  height: 80px; /* Aumentado para logo más grande */
   max-width: 1400px;
   margin: 0 auto;
 }
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px; /* Aumentado */
   text-decoration: none;
   flex-shrink: 0;
 }
 .logo-icon {
-  width: 36px; height: 36px;
+  width: 48px; height: 48px; /* Aumentado de 36px a 48px */
   background: var(--blue);
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
+  font-size: 24px; /* Aumentado */
   /* Logo from GitHub */
   background-image: url('https://raw.githubusercontent.com/forsol/forsol.github.io/main/logo.png');
   background-size: contain;
@@ -267,19 +267,20 @@ nav {
 }
 .logo-text {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 32px; /* Aumentado de 26px a 32px */
   font-weight: 700;
   color: var(--white);
   letter-spacing: 0.05em;
+  line-height: 1.2;
 }
 .logo-text span { color: var(--electric); }
 .logo-sub {
-  font-size: 10px;
+  font-size: 12px; /* Aumentado ligeramente */
   color: var(--gray-400);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   line-height: 1;
-  margin-top: -2px;
+  margin-top: 2px;
 }
 .nav-links {
   display: flex;
@@ -293,7 +294,7 @@ nav {
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  padding: 6px 12px;
+  padding: 8px 14px; /* Aumentado ligeramente */
   border-radius: 8px;
   transition: var(--transition);
 }
@@ -1520,32 +1521,48 @@ footer {
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ── */
+/* ── RESPONSIVE MEJORADO ── */
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
   .calc-wrap { grid-template-columns: 1fr; }
   .contact-wrap { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .search-wrap { display: none; }
+  .search-wrap { 
+    display: block; 
+    width: auto;
+  }
+  .search-input { width: 160px; }
+  .search-input:focus { width: 200px; }
   .hamburger { display: block; }
-  .hero-stats { gap: 20px; flex-wrap: wrap; }
+  .hero-stats { gap: 15px; flex-wrap: wrap; justify-content: center; }
   .categories-grid { grid-template-columns: repeat(2, 1fr); }
-  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .product-card { margin-bottom: 10px; }
+  .product-name { font-size: 14px; }
+  .price-current { font-size: 18px; }
   .why-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .floating-chip { display: none; }
   .hero-btns { flex-direction: column; }
-  .hero-btns .btn-primary, .hero-btns .btn-secondary { justify-content: center; }
+  .hero-btns .btn-primary, .hero-btns .btn-secondary { justify-content: center; width: 100%; }
+  .section-title { font-size: 28px; }
+  .stat-num { font-size: 24px; }
 }
 @media (max-width: 480px) {
   .products-grid { grid-template-columns: 1fr; }
-  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .categories-grid { grid-template-columns: 1fr; }
   .result-grid { grid-template-columns: 1fr; }
+  .search-input { width: 120px; }
+  .search-input:focus { width: 160px; }
+  .btn-cta { padding: 8px 12px; font-size: 12px; }
+  .logo-text { font-size: 24px; }
+  .logo-icon { width: 40px; height: 40px; }
 }
 </style>
 </head>
@@ -1991,6 +2008,21 @@ footer {
             <span>+52 661 128 2417</span>
           </div>
         </div>
+        <!-- NUEVOS CONTACTOS DE MONTERREY -->
+        <div class="contact-item">
+          <div class="contact-item-icon">📱</div>
+          <div class="contact-item-text">
+            <strong>Monterrey - Jorge</strong>
+            <span>+52 1 81 1867 7392</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📱</div>
+          <div class="contact-item-text">
+            <strong>Monterrey - Socio</strong>
+            <span>+52 1 81 1921 0372</span>
+          </div>
+        </div>
         <div class="contact-item">
           <div class="contact-item-icon">📧</div>
           <div class="contact-item-text">
@@ -2205,7 +2237,7 @@ const API_URL = 'http://localhost:3000';
 
 let cart = [];
 let cartDiscount = 0;
-let currentCatId = 'paneles'; // Cambiado a categoría personalizada
+let currentCatId = 'todos'; // Cambiado de 'paneles' a 'todos'
 let currentPage = 1;
 let totalProducts = 0;
 let carouselPos = 0;
@@ -2353,7 +2385,7 @@ async function fetchSearchResults(query, page) {
           <div style="font-size:48px;margin-bottom:20px;">❌</div>
           <p style="font-size:18px;margin-bottom:10px;">Error en la búsqueda</p>
           <p style="font-size:14px;">Intenta de nuevo más tarde</p>
-          <button class="btn-primary" style="margin-top:20px;" onclick="loadProducts('paneles', 1)">Ver todos los productos</button>
+          <button class="btn-primary" style="margin-top:20px;" onclick="loadProducts('todos', 1)">Ver todos los productos</button>
         </div>
       `;
     }
@@ -2380,7 +2412,7 @@ function displaySearchResults(productos, isNewSearch, total) {
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
           <button class="btn-secondary" onclick="performSearch('microinversores')">Buscar Microinversores</button>
           <button class="btn-secondary" onclick="performSearch('cámaras')">Buscar Cámaras</button>
-          <button class="btn-primary" onclick="loadProducts('paneles', 1)">Ver todos</button>
+          <button class="btn-primary" onclick="loadProducts('todos', 1)">Ver todos</button>
         </div>
       </div>
     `;
@@ -2441,7 +2473,7 @@ function displaySearchResults(productos, isNewSearch, total) {
   
   const loadMoreBtn = document.getElementById('loadMoreBtn');
   if (loadMoreBtn) {
-    if (productos.length >= 20 && searchResults.length < total) {
+    if (productos.length >= 10 && searchResults.length < total) {
       loadMoreBtn.style.display = 'inline-flex';
       loadMoreBtn.onclick = () => {
         searchPage++;
@@ -2469,7 +2501,7 @@ function selectSearchResult(productId) {
   showSyscomDetail(productId);
 }
 
-// ── LOAD CATEGORIES FROM API (VERSIÓN PERSONALIZADA) ──
+// ── LOAD CATEGORIES FROM API ──
 async function loadCategories() {
   try {
     const res = await fetch(`${API_URL}/api/categorias`);
@@ -2480,6 +2512,7 @@ async function loadCategories() {
     } else {
       // Fallback a categorías personalizadas
       buildFilterButtons([
+        { id: 'todos', nombre: 'Todos', icon: '🔥' },
         { id: 'paneles', nombre: 'Paneles Solares', icon: '☀️' },
         { id: 'inversores', nombre: 'Inversores', icon: '🔌' },
         { id: 'microinversores', nombre: 'Microinversores', icon: '⚡' },
@@ -2495,9 +2528,8 @@ async function loadCategories() {
   } catch (err) {
     console.error('Error loading categories:', err);
     buildFilterButtons([
-      { id: 'paneles', nombre: 'Paneles Solares', icon: '☀️' },
-      { id: 'inversores', nombre: 'Inversores', icon: '🔌' },
-      { id: 'microinversores', nombre: 'Microinversores', icon: '⚡' }
+      { id: 'todos', nombre: 'Todos', icon: '🔥' },
+      { id: 'paneles', nombre: 'Paneles Solares', icon: '☀️' }
     ]);
   }
 }
@@ -2505,10 +2537,11 @@ async function loadCategories() {
 // ── BUILD FILTER BUTTONS FROM CATEGORIES ──
 function buildFilterButtons(categorias) {
   const wrap = document.getElementById('productFilters');
-  wrap.innerHTML = `<button class="filter-btn active" onclick="filterProducts('paneles')">🔥 Todos</button>`;
+  wrap.innerHTML = ''; // Limpiar
   
-  categorias.forEach(c => {
-    wrap.innerHTML += `<button class="filter-btn" onclick="filterProducts('${c.id}')">${c.icon || '📦'} ${c.nombre}</button>`;
+  categorias.forEach((c, index) => {
+    const activeClass = index === 0 ? 'active' : ''; // El primero (Todos) es activo
+    wrap.innerHTML += `<button class="filter-btn ${activeClass}" onclick="filterProducts('${c.id}')">${c.icon || '📦'} ${c.nombre}</button>`;
   });
 }
 
