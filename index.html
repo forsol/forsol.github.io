@@ -200,7 +200,7 @@ body {
 ::-webkit-scrollbar-track { background: var(--dark-2); }
 ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
 
-/* ── TICKER ── */
+/* ── TICKER (BANNER SIMPLIFICADO) ── */
 .ticker-wrap {
   background: var(--blue);
   padding: 8px 0;
@@ -608,6 +608,7 @@ nav {
   width: 100%;
   max-width: 520px;
 }
+/* PRODUCTO DESTACADO REAL (SKU 248124) */
 .hero-card-main {
   background: linear-gradient(135deg, var(--dark-3), var(--dark-2));
   border: 1px solid rgba(0,87,255,0.3);
@@ -1550,23 +1551,15 @@ footer {
 </head>
 <body>
 
-<!-- TICKER -->
+<!-- TICKER (BANNER SIMPLIFICADO) -->
 <div class="ticker-wrap">
   <div class="ticker-content" id="tickerContent">
     <span>Envío gratis en compras mayores a $3,000 MXN</span>
-    <span>Instalación profesional disponible</span>
-    <span>Asesoría técnica gratuita: +52 661 128 2417</span>
     <span>Garantía extendida en todos nuestros productos</span>
-    <span>Financiamiento disponible — pregunta por nuestros planes</span>
-    <span>Distribuidores autorizados de las mejores marcas</span>
     <span>Envío a todo México con rastreo en tiempo real</span>
     <span>Oficinas en Monterrey y Tijuana</span>
     <span>Envío gratis en compras mayores a $3,000 MXN</span>
-    <span>Instalación profesional disponible</span>
-    <span>Asesoría técnica gratuita: +52 661 128 2417</span>
     <span>Garantía extendida en todos nuestros productos</span>
-    <span>Financiamiento disponible — pregunta por nuestros planes</span>
-    <span>Distribuidores autorizados de las mejores marcas</span>
     <span>Envío a todo México con rastreo en tiempo real</span>
     <span>Oficinas en Monterrey y Tijuana</span>
   </div>
@@ -1576,7 +1569,6 @@ footer {
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">
-      <!-- LOGO ACTUALIZADO desde GitHub -->
       <div class="logo-icon"><span>⚡</span></div>
       <div>
         <div class="logo-text">Forsol</div>
@@ -1673,17 +1665,17 @@ footer {
     </div>
     <div class="hero-visual">
       <div class="hero-device">
+        <!-- PRODUCTO DESTACADO REAL (SKU 248124) -->
         <div class="hero-card-main">
-          <div class="floating-badge">✓ Más vendido</div>
+          <div class="floating-badge">✓ Oferta Especial</div>
           <div class="hc-label">Producto Destacado</div>
-          <div class="hc-title">Kit Solar 3kW</div>
-          <div class="hc-sub">6 Paneles + Microinversores + Estructura</div>
+          <div class="hc-title" id="destacadoTitulo">Kit Solar 3.3kW</div>
+          <div class="hc-sub" id="destacadoSubtitulo">6 Paneles 550W + Inversor Híbrido 5kW</div>
           <div class="hc-visual">☀️</div>
           <div>
-            <span class="hc-price">$45,900 MXN</span>
-            <span class="hc-price-old">$54,000</span>
+            <span class="hc-price" id="precioDestacado">Consultar</span>
           </div>
-          <button class="hc-btn" onclick="addToCart('Kit Solar Residencial 3kW',45900,'🌞','Solar')">⚡ Agregar al Carrito</button>
+          <button class="hc-btn" id="btnDestacado" onclick="verProductoDestacado()">🔍 Ver detalles</button>
         </div>
         <div class="floating-chip floating-chip-1">
           <span class="chip-icon">💰</span>
@@ -2209,11 +2201,11 @@ footer {
 const COUPONS = { 'FORSOL10': 10, 'SOLAR15': 15, 'NACIONAL20': 20, 'BAJA5': 5 };
 const WA_NUM = '526611282417';
 // ⚠️ When deploying to Vercel, change this URL to your Vercel URL
-const API_URL = 'https://voltmx-backend.vercel.app';
+const API_URL = 'http://localhost:3000';
 
 let cart = [];
 let cartDiscount = 0;
-let currentCatId = '22';
+let currentCatId = 'paneles'; // Cambiado a categoría personalizada
 let currentPage = 1;
 let totalProducts = 0;
 let carouselPos = 0;
@@ -2226,6 +2218,36 @@ let searchResults = [];
 let searchQuery = '';
 let searchPage = 1;
 
+// ── FUNCIÓN PARA CARGAR PRODUCTO DESTACADO (SKU 248124) ──
+async function cargarProductoDestacado() {
+  try {
+    const res = await fetch(`${API_URL}/api/productos/248124`);
+    const data = await res.json();
+    if (data.ok && data.producto) {
+      const p = data.producto;
+      const precio = p.precio_publico || 0;
+      
+      // Actualizar el título y subtítulo
+      const tituloElem = document.getElementById('destacadoTitulo');
+      const precioElem = document.getElementById('precioDestacado');
+      
+      if (p.titulo) {
+        const tituloCorto = p.titulo.substring(0, 40) + (p.titulo.length > 40 ? '...' : '');
+        tituloElem.textContent = tituloCorto;
+      }
+      
+      precioElem.textContent = `$${precio.toLocaleString('es-MX', {minimumFractionDigits:2})} MXN`;
+    }
+  } catch (e) {
+    console.error("Error cargando producto destacado", e);
+  }
+}
+
+// ── FUNCIÓN PARA VER PRODUCTO DESTACADO ──
+function verProductoDestacado() {
+  showSyscomDetail('248124');
+}
+
 // ── INIT ──
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('footerYear').textContent = new Date().getFullYear();
@@ -2237,6 +2259,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCalc();
   startCarousel();
   updateRangeStyle();
+  cargarProductoDestacado(); // Cargar el producto destacado
 });
 
 window.addEventListener('scroll', () => {
@@ -2330,7 +2353,7 @@ async function fetchSearchResults(query, page) {
           <div style="font-size:48px;margin-bottom:20px;">❌</div>
           <p style="font-size:18px;margin-bottom:10px;">Error en la búsqueda</p>
           <p style="font-size:14px;">Intenta de nuevo más tarde</p>
-          <button class="btn-primary" style="margin-top:20px;" onclick="loadProducts('22', 1)">Ver todos los productos</button>
+          <button class="btn-primary" style="margin-top:20px;" onclick="loadProducts('paneles', 1)">Ver todos los productos</button>
         </div>
       `;
     }
@@ -2357,7 +2380,7 @@ function displaySearchResults(productos, isNewSearch, total) {
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
           <button class="btn-secondary" onclick="performSearch('microinversores')">Buscar Microinversores</button>
           <button class="btn-secondary" onclick="performSearch('cámaras')">Buscar Cámaras</button>
-          <button class="btn-primary" onclick="loadProducts('22', 1)">Ver todos</button>
+          <button class="btn-primary" onclick="loadProducts('paneles', 1)">Ver todos</button>
         </div>
       </div>
     `;
@@ -2446,7 +2469,7 @@ function selectSearchResult(productId) {
   showSyscomDetail(productId);
 }
 
-// ── LOAD CATEGORIES FROM API ──
+// ── LOAD CATEGORIES FROM API (VERSIÓN PERSONALIZADA) ──
 async function loadCategories() {
   try {
     const res = await fetch(`${API_URL}/api/categorias`);
@@ -2455,20 +2478,26 @@ async function loadCategories() {
     if (data.ok && data.categorias) {
       buildFilterButtons(data.categorias);
     } else {
+      // Fallback a categorías personalizadas
       buildFilterButtons([
-        { id: '22', nombre: 'Videovigilancia', icon: '📹' },
-        { id: '26', nombre: 'Redes e IT', icon: '🌐' },
-        { id: '30', nombre: 'Energía', icon: '⚡' },
-        { id: '32', nombre: 'Automatización', icon: '🔒' },
-        { id: '37', nombre: 'Control de Acceso', icon: '🚪' }
+        { id: 'paneles', nombre: 'Paneles Solares', icon: '☀️' },
+        { id: 'inversores', nombre: 'Inversores', icon: '🔌' },
+        { id: 'microinversores', nombre: 'Microinversores', icon: '⚡' },
+        { id: 'baterias', nombre: 'Baterías', icon: '🔋' },
+        { id: 'controladores', nombre: 'Controladores', icon: '🎛️' },
+        { id: 'estructuras', nombre: 'Estructuras', icon: '🏗️' },
+        { id: 'kits', nombre: 'Kits Solares', icon: '📦' },
+        { id: 'kits-offgrid', nombre: 'Kits Offgrid', icon: '🌲' },
+        { id: 'monitoreo', nombre: 'Monitoreo', icon: '📊' },
+        { id: 'herramientas', nombre: 'Herramientas', icon: '🛠️' }
       ]);
     }
   } catch (err) {
     console.error('Error loading categories:', err);
     buildFilterButtons([
-      { id: '22', nombre: 'Videovigilancia', icon: '📹' },
-      { id: '26', nombre: 'Redes e IT', icon: '🌐' },
-      { id: '30', nombre: 'Energía', icon: '⚡' }
+      { id: 'paneles', nombre: 'Paneles Solares', icon: '☀️' },
+      { id: 'inversores', nombre: 'Inversores', icon: '🔌' },
+      { id: 'microinversores', nombre: 'Microinversores', icon: '⚡' }
     ]);
   }
 }
@@ -2476,7 +2505,7 @@ async function loadCategories() {
 // ── BUILD FILTER BUTTONS FROM CATEGORIES ──
 function buildFilterButtons(categorias) {
   const wrap = document.getElementById('productFilters');
-  wrap.innerHTML = `<button class="filter-btn active" onclick="filterProducts('22')">🔥 Todos</button>`;
+  wrap.innerHTML = `<button class="filter-btn active" onclick="filterProducts('paneles')">🔥 Todos</button>`;
   
   categorias.forEach(c => {
     wrap.innerHTML += `<button class="filter-btn" onclick="filterProducts('${c.id}')">${c.icon || '📦'} ${c.nombre}</button>`;
@@ -2491,7 +2520,6 @@ async function loadProducts(catId, page = 1) {
   const loadBtn = document.getElementById('loadMoreBtn');
 
   if (page === 1) {
-    // CAMBIO: "Checando inventario" en lugar de "Cargando productos desde Syscom"
     grid.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--gray-400);">
         <div style="font-size:36px;margin-bottom:12px;animation:pulse 1.5s infinite;">⚡</div>
