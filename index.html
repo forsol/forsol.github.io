@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forsol — Tecnología & Energía Solar | México</title>
-<meta name="description" content="Forsol — Tu tienda de tecnología en México. Paneles solares, microinversores, cámaras de seguridad, electrónicos y más. Envío a todo México.">
-<meta name="keywords" content="paneles solares, microinversores, camaras seguridad, energia solar, electronica">
-<meta property="og:title" content="Forsol — Tecnología & Energía Solar México">
-<meta property="og:description" content="Paneles solares, microinversores, cámaras y electrónicos. Envío a todo México.">
+<title>Forsol — Energía Solar | México</title>
+<meta name="description" content="Forsol — Tu tienda de energía solar en México. Paneles solares, microinversores, baterías y más. Envío a todo México.">
+<meta name="keywords" content="paneles solares, microinversores, energia solar, baterias solares, kits solares">
+<meta property="og:title" content="Forsol — Energía Solar México">
+<meta property="og:description" content="Paneles solares, microinversores, baterías y kits solares. Envío a todo México.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -238,24 +238,23 @@ nav {
   display: flex;
   align-items: center;
   gap: 24px;
-  height: 80px; /* Aumentado para logo más grande */
+  height: 80px;
   max-width: 1400px;
   margin: 0 auto;
 }
 .logo {
   display: flex;
   align-items: center;
-  gap: 15px; /* Aumentado */
+  gap: 15px;
   text-decoration: none;
   flex-shrink: 0;
 }
 .logo-icon {
-  width: 48px; height: 48px; /* Aumentado de 36px a 48px */
+  width: 48px; height: 48px;
   background: var(--blue);
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 24px; /* Aumentado */
-  /* Logo from GitHub */
+  font-size: 24px;
   background-image: url('https://raw.githubusercontent.com/forsol/forsol.github.io/main/logo.png');
   background-size: contain;
   background-position: center;
@@ -263,11 +262,11 @@ nav {
   background-color: transparent;
 }
 .logo-icon span {
-  display: none; /* Hide the ⚡ icon */
+  display: none;
 }
 .logo-text {
   font-family: var(--font-display);
-  font-size: 32px; /* Aumentado de 26px a 32px */
+  font-size: 32px;
   font-weight: 700;
   color: var(--white);
   letter-spacing: 0.05em;
@@ -275,7 +274,7 @@ nav {
 }
 .logo-text span { color: var(--electric); }
 .logo-sub {
-  font-size: 12px; /* Aumentado ligeramente */
+  font-size: 12px;
   color: var(--gray-400);
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -294,7 +293,7 @@ nav {
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  padding: 8px 14px; /* Aumentado ligeramente */
+  padding: 8px 14px;
   border-radius: 8px;
   transition: var(--transition);
 }
@@ -609,7 +608,6 @@ nav {
   width: 100%;
   max-width: 520px;
 }
-/* PRODUCTO DESTACADO REAL (SKU 248124) */
 .hero-card-main {
   background: linear-gradient(135deg, var(--dark-3), var(--dark-2));
   border: 1px solid rgba(0,87,255,0.3);
@@ -753,57 +751,6 @@ section { padding: clamp(60px,8vw,100px) clamp(16px,4vw,60px); }
   margin-left: auto; margin-right: auto;
 }
 
-/* ── CATEGORIES ── */
-#categorias { background: var(--dark-2); }
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-}
-.cat-card {
-  background: var(--dark-3);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: var(--radius-lg);
-  padding: 28px 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  display: block;
-}
-.cat-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--electric));
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-.cat-card:hover { border-color: rgba(0,87,255,0.4); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,87,255,0.2); }
-.cat-card:hover::before { transform: scaleX(1); }
-.cat-icon { font-size: 36px; margin-bottom: 12px; display: block; }
-.cat-name {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 6px;
-  letter-spacing: 0.03em;
-}
-.cat-desc { font-size: 12px; color: var(--gray-400); line-height: 1.5; }
-.cat-count {
-  display: inline-block;
-  font-size: 10px;
-  color: var(--electric);
-  background: rgba(0,212,255,0.1);
-  border-radius: 100px;
-  padding: 2px 8px;
-  margin-top: 10px;
-}
-
 /* ── PRODUCTS ── */
 #productos { background: var(--dark); }
 .product-filters {
@@ -896,8 +843,6 @@ section { padding: clamp(60px,8vw,100px) clamp(16px,4vw,60px); }
   line-height: 1.3;
   margin-bottom: 8px;
 }
-.product-stars { font-size: 12px; color: var(--warning); margin-bottom: 12px; display: flex; align-items: center; gap: 4px; }
-.product-stars span { color: var(--gray-400); font-size: 11px; }
 .product-price { margin-top: auto; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
 .price-current {
   font-family: var(--font-display);
@@ -937,7 +882,11 @@ section { padding: clamp(60px,8vw,100px) clamp(16px,4vw,60px); }
 }
 .btn-detail:hover { border-color: var(--electric); color: var(--electric); }
 
-.load-more-wrap { text-align: center; margin-top: 40px; }
+.load-more-wrap { 
+  text-align: center; 
+  margin-top: 20px; 
+  margin-bottom: 20px;
+}
 
 /* ── CALCULATOR ── */
 #calculadora { background: var(--dark-2); }
@@ -1648,11 +1597,11 @@ footer {
     <div class="hero-content">
       <div class="hero-label">Monterrey · Tijuana · Distribución Nacional</div>
       <h1>
-        Tecnología <span class="line-accent">Inteligente</span>
+        Energía Solar <span class="line-accent">Inteligente</span>
         <span class="line-blue">Para Todo México</span>
       </h1>
       <p class="hero-sub">
-        Paneles solares, microinversores, cámaras de seguridad y electrónicos de última generación. 
+        Paneles solares, microinversores, baterías y kits solares de última generación. 
         Oficinas en Monterrey y Tijuana, envíos a todo México.
       </p>
       <div class="hero-btns">
@@ -1720,12 +1669,12 @@ footer {
     <div class="brands-list">
       <span class="brand-item">ENPHASE</span>
       <span class="brand-item">SOLAREDGE</span>
-      <span class="brand-item">HIKVISION</span>
-      <span class="brand-item">DAHUA</span>
       <span class="brand-item">LG SOLAR</span>
       <span class="brand-item">FRONIUS</span>
       <span class="brand-item">CANADIAN SOLAR</span>
       <span class="brand-item">APSYSTEMS</span>
+      <span class="brand-item">HOYMILES</span>
+      <span class="brand-item">GROWATT</span>
     </div>
   </div>
 </div>
@@ -1735,14 +1684,14 @@ footer {
   <div class="section-inner">
     <div class="section-header reveal">
       <div class="section-tag">Tienda</div>
-      <h2 class="section-title">Productos <span class="accent">Destacados</span></h2>
-      <p class="section-sub">Los más vendidos, mejor calificados y con mejor relación precio-valor del mercado.</p>
+      <h2 class="section-title">Productos <span class="accent">Solares</span></h2>
+      <p class="section-sub">Los mejores paneles solares, inversores y baterías del mercado.</p>
     </div>
     
-    <!-- NUEVA CAJA DE BÚSQUEDA AQUÍ -->
+    <!-- CAJA DE BÚSQUEDA -->
     <div class="search-section" style="margin-bottom: 30px; text-align: center;">
       <div style="max-width: 600px; margin: 0 auto; position: relative;">
-        <input type="text" id="searchInputProducts" placeholder="🔍 Buscar microinversores, cámaras, baterías..." 
+        <input type="text" id="searchInputProducts" placeholder="🔍 Buscar paneles solares, inversores, baterías..." 
                style="width: 100%; padding: 15px 20px; border-radius: 50px; border: 2px solid rgba(0,87,255,0.3); 
                       background: var(--dark-3); color: var(--white); font-size: 16px;">
         <button onclick="performSearch()" 
@@ -1753,10 +1702,10 @@ footer {
       </div>
       <div style="margin-top: 10px; font-size: 13px; color: var(--gray-400);">
         Búsquedas populares: 
-        <a href="javascript:void(0);" onclick="performSearch('microinversores'); return false;" style="color: var(--electric); text-decoration: underline; cursor: pointer;">Microinversores</a> • 
-        <a href="javascript:void(0);" onclick="performSearch('cámaras'); return false;" style="color: var(--electric); text-decoration: underline; cursor: pointer;">Cámaras</a> • 
         <a href="javascript:void(0);" onclick="performSearch('paneles solares'); return false;" style="color: var(--electric); text-decoration: underline; cursor: pointer;">Paneles Solares</a> • 
-        <a href="javascript:void(0);" onclick="performSearch('baterías'); return false;" style="color: var(--electric); text-decoration: underline; cursor: pointer;">Baterías</a>
+        <a href="javascript:void(0);" onclick="performSearch('microinversores'); return false;" style="color: var(--electric); text-decoration: underline; cursor: pointer;">Microinversores</a> • 
+        <a href="javascript:void(0);" onclick="performSearch('baterías'); return false;" style="color: var(--electric); text-decoration: underline; cursor: pointer;">Baterías</a> • 
+        <a href="javascript:void(0);" onclick="performSearch('kits solares'); return false;" style="color: var(--electric); text-decoration: underline; cursor: pointer;">Kits Solares</a>
       </div>
     </div>
     
@@ -1848,7 +1797,7 @@ footer {
   <div class="section-inner">
     <div class="section-header reveal">
       <div class="section-tag">¿Por qué Forsol?</div>
-      <h2 class="section-title">Tu Aliado en <span class="accent">Tecnología</span></h2>
+      <h2 class="section-title">Tu Aliado en <span class="accent">Energía Solar</span></h2>
       <p class="section-sub">Oficinas en Monterrey y Tijuana. Conocemos el mercado, las marcas y tus necesidades.</p>
     </div>
     <div class="why-grid">
@@ -1857,13 +1806,6 @@ footer {
         <div class="why-text">
           <h3>Garantía Extendida</h3>
           <p>25 años en paneles solares, 10 años en microinversores. Respaldamos cada producto que vendemos.</p>
-        </div>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-icon">🔧</div>
-        <div class="why-text">
-          <h3>Instalación Certificada</h3>
-          <p>Técnicos certificados en Monterrey, Tijuana y área metropolitana. Instalamos lo que vendemos.</p>
         </div>
       </div>
       <div class="why-card reveal">
@@ -1876,8 +1818,8 @@ footer {
       <div class="why-card reveal">
         <div class="why-icon">💳</div>
         <div class="why-text">
-          <h3>Financiamiento</h3>
-          <p>Planes de pago a 3, 6 y 12 meses. Pregunta por MSI en tarjetas participantes.</p>
+          <h3>Pagos Seguros</h3>
+          <p>Aceptamos todas las tarjetas, transferencias y pagos en línea seguros.</p>
         </div>
       </div>
       <div class="why-card reveal">
@@ -1922,18 +1864,6 @@ footer {
           </div>
           <div class="testimonial-card">
             <div class="test-top">
-              <div class="test-avatar" style="background:linear-gradient(135deg,#00b4d8,#0077b6);">AG</div>
-              <div>
-                <div class="test-name">Ana González</div>
-                <div class="test-city">Monterrey, NL</div>
-              </div>
-            </div>
-            <div class="test-stars">★★★★★</div>
-            <p class="test-text">"Compré 4 cámaras Hikvision para mi negocio. Excelente calidad de imagen, instalación perfecta y el soporte post-venta es increíble. 100% recomendado."</p>
-            <span class="test-tag">Sistema CCTV Comercial</span>
-          </div>
-          <div class="testimonial-card">
-            <div class="test-top">
               <div class="test-avatar" style="background:linear-gradient(135deg,#f77f00,#d62828);">JL</div>
               <div>
                 <div class="test-name">Jorge López</div>
@@ -1943,18 +1873,6 @@ footer {
             <div class="test-stars">★★★★★</div>
             <p class="test-text">"Tengo un negocio de refrigeración. Los paneles solares que instalé con Forsol me están ahorrando más de $8,000 al mes en electricidad. Inversión recuperada en 3 años."</p>
             <span class="test-tag">Sistema Solar Comercial 10kW</span>
-          </div>
-          <div class="testimonial-card">
-            <div class="test-top">
-              <div class="test-avatar" style="background:linear-gradient(135deg,#7b2d8b,#4a0e8f);">SC</div>
-              <div>
-                <div class="test-name">Sandra Castro</div>
-                <div class="test-city">Tijuana, BC</div>
-              </div>
-            </div>
-            <div class="test-stars">★★★★☆</div>
-            <p class="test-text">"Me asesoraron muy bien para elegir el sistema de cámaras para mi casa. El envío fue rápido y la instalación excelente. Muy buena comunicación por WhatsApp."</p>
-            <span class="test-tag">CCTV Residencial 6 cámaras</span>
           </div>
           <div class="testimonial-card">
             <div class="test-top">
@@ -1995,7 +1913,7 @@ footer {
   <div class="section-inner">
     <div class="section-header reveal">
       <div class="section-tag">Contacto</div>
-      <h2 class="section-title">Cotiza tu <span class="accent">Proyecto</span></h2>
+      <h2 class="section-title">Cotiza tu <span class="accent">Proyecto Solar</span></h2>
       <p class="section-sub">Respondemos en menos de 2 horas en horario laboral. ¡Asesoría técnica gratuita!</p>
     </div>
     <div class="contact-wrap reveal">
@@ -2004,22 +1922,21 @@ footer {
         <div class="contact-item">
           <div class="contact-item-icon">📱</div>
           <div class="contact-item-text">
-            <strong>WhatsApp / Teléfono</strong>
+            <strong>Tijuana - Ezequiel</strong>
             <span>+52 661 128 2417</span>
           </div>
         </div>
-        <!-- NUEVOS CONTACTOS DE MONTERREY -->
         <div class="contact-item">
           <div class="contact-item-icon">📱</div>
           <div class="contact-item-text">
-            <strong>Monterrey - Jorge</strong>
+            <strong>Monterrey - Gerardo</strong>
             <span>+52 1 81 1867 7392</span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-item-icon">📱</div>
           <div class="contact-item-text">
-            <strong>Monterrey - Socio</strong>
+            <strong>Monterrey - Diego</strong>
             <span>+52 1 81 1921 0372</span>
           </div>
         </div>
@@ -2027,7 +1944,7 @@ footer {
           <div class="contact-item-icon">📧</div>
           <div class="contact-item-text">
             <strong>Correo Electrónico</strong>
-            <span>contacto@forsol.mx</span>
+            <span>forsolmx@gmail.com</span>
           </div>
         </div>
         <div class="contact-item">
@@ -2048,7 +1965,6 @@ footer {
           <a class="social-btn" href="https://wa.me/526611282417" target="_blank" title="WhatsApp">📱</a>
           <a class="social-btn" href="#" title="Facebook">📘</a>
           <a class="social-btn" href="#" title="Instagram">📸</a>
-          <a class="social-btn" href="#" title="YouTube">▶️</a>
         </div>
       </div>
       <div class="contact-form">
@@ -2076,10 +1992,7 @@ footer {
             <option>Sistema Solar Residencial</option>
             <option>Sistema Solar Comercial</option>
             <option>Sistema Solar Industrial</option>
-            <option>Cámaras de Seguridad</option>
-            <option>DVR / NVR / Grabadores</option>
             <option>Baterías y Almacenamiento</option>
-            <option>Electrónica General</option>
             <option>Otro</option>
           </select>
         </div>
@@ -2110,7 +2023,7 @@ footer {
             <div class="logo-text" style="font-size:22px;">Forsol</div>
           </div>
         </a>
-        <p>Tu tienda de tecnología en México. Paneles solares, microinversores, cámaras y electrónicos. Envío a todo México.</p>
+        <p>Tu tienda de energía solar en México. Paneles solares, microinversores, baterías y kits solares. Envío a todo México.</p>
         <div class="newsletter-row">
           <input type="email" class="newsletter-input" placeholder="Tu correo electrónico" id="newsletterEmail">
           <button class="newsletter-btn" onclick="subscribeNewsletter()">Suscribir</button>
@@ -2123,7 +2036,6 @@ footer {
           <li><a href="#contacto">Contacto</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Proyectos</a></li>
-          <li><a href="#">Trabaja con nosotros</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -2131,9 +2043,9 @@ footer {
         <ul>
           <li><a href="#productos">Paneles Solares</a></li>
           <li><a href="#productos">Microinversores</a></li>
-          <li><a href="#productos">Cámaras IP</a></li>
           <li><a href="#productos">Baterías</a></li>
           <li><a href="#productos">Inversores</a></li>
+          <li><a href="#productos">Kits Solares</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -2143,7 +2055,6 @@ footer {
           <li><a href="#">Términos de Servicio</a></li>
           <li><a href="#">Política de Devoluciones</a></li>
           <li><a href="#">Garantías</a></li>
-          <li><a href="#">Aviso de Cookies</a></li>
         </ul>
       </div>
     </div>
@@ -2230,14 +2141,13 @@ footer {
 
 <script>
 // ── CONFIG ──
-const COUPONS = { 'FORSOL10': 10, 'SOLAR15': 15, 'NACIONAL20': 20, 'BAJA5': 5 };
+const COUPONS = { 'FORSOL10': 10, 'SOLAR15': 15, 'NACIONAL20': 20 };
 const WA_NUM = '526611282417';
-// ⚠️ When deploying to Vercel, change this URL to your Vercel URL
 const API_URL = 'http://localhost:3000';
 
 let cart = [];
 let cartDiscount = 0;
-let currentCatId = 'todos'; // Cambiado de 'paneles' a 'todos'
+let currentCatId = 'todos';
 let currentPage = 1;
 let totalProducts = 0;
 let carouselPos = 0;
@@ -2259,7 +2169,6 @@ async function cargarProductoDestacado() {
       const p = data.producto;
       const precio = p.precio_publico || 0;
       
-      // Actualizar el título y subtítulo
       const tituloElem = document.getElementById('destacadoTitulo');
       const precioElem = document.getElementById('precioDestacado');
       
@@ -2275,7 +2184,6 @@ async function cargarProductoDestacado() {
   }
 }
 
-// ── FUNCIÓN PARA VER PRODUCTO DESTACADO ──
 function verProductoDestacado() {
   showSyscomDetail('248124');
 }
@@ -2291,7 +2199,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCalc();
   startCarousel();
   updateRangeStyle();
-  cargarProductoDestacado(); // Cargar el producto destacado
+  cargarProductoDestacado();
 });
 
 window.addEventListener('scroll', () => {
@@ -2299,7 +2207,6 @@ window.addEventListener('scroll', () => {
   btn.classList.toggle('show', window.scrollY > 300);
 });
 
-// ── FUNCIÓN PARA MOSTRAR NOTIFICACIONES (TOAST) ──
 function showToast(msg, type = 'success') {
   const container = document.getElementById('toastContainer');
   if (!container) return;
@@ -2320,7 +2227,6 @@ function showToast(msg, type = 'success') {
   }, 3000);
 }
 
-// ── FUNCIÓN PRINCIPAL DE BÚSQUEDA ──
 function performSearch(query) {
   if (query) {
     searchQuery = query;
@@ -2357,7 +2263,6 @@ function performSearch(query) {
   fetchSearchResults(searchQuery, 1);
 }
 
-// ── FUNCIÓN PARA OBTENER RESULTADOS DE BÚSQUEDA ──
 async function fetchSearchResults(query, page) {
   try {
     const url = `${API_URL}/api/buscar?q=${encodeURIComponent(query)}&pagina=${page}`;
@@ -2394,7 +2299,6 @@ async function fetchSearchResults(query, page) {
   }
 }
 
-// ── FUNCIÓN PARA MOSTRAR RESULTADOS ──
 function displaySearchResults(productos, isNewSearch, total) {
   const grid = document.getElementById('productsGrid');
   if (!grid) return;
@@ -2410,8 +2314,8 @@ function displaySearchResults(productos, isNewSearch, total) {
         <p style="font-size:20px;margin-bottom:10px;">No se encontraron productos para "${searchQuery}"</p>
         <p style="font-size:14px;margin-bottom:30px;">Intenta con otras palabras</p>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn-secondary" onclick="performSearch('paneles solares')">Buscar Paneles</button>
           <button class="btn-secondary" onclick="performSearch('microinversores')">Buscar Microinversores</button>
-          <button class="btn-secondary" onclick="performSearch('cámaras')">Buscar Cámaras</button>
           <button class="btn-primary" onclick="loadProducts('todos', 1)">Ver todos</button>
         </div>
       </div>
@@ -2473,7 +2377,7 @@ function displaySearchResults(productos, isNewSearch, total) {
   
   const loadMoreBtn = document.getElementById('loadMoreBtn');
   if (loadMoreBtn) {
-    if (productos.length >= 10 && searchResults.length < total) {
+    if (productos.length >= 20 && searchResults.length < total) {
       loadMoreBtn.style.display = 'inline-flex';
       loadMoreBtn.onclick = () => {
         searchPage++;
@@ -2492,7 +2396,6 @@ function displaySearchResults(productos, isNewSearch, total) {
   }, 50);
 }
 
-// ── FUNCIÓN PARA SELECCIONAR RESULTADO ──
 function selectSearchResult(productId) {
   const input = document.getElementById('searchInput');
   if (input) input.value = '';
@@ -2501,7 +2404,6 @@ function selectSearchResult(productId) {
   showSyscomDetail(productId);
 }
 
-// ── LOAD CATEGORIES FROM API ──
 async function loadCategories() {
   try {
     const res = await fetch(`${API_URL}/api/categorias`);
@@ -2510,7 +2412,6 @@ async function loadCategories() {
     if (data.ok && data.categorias) {
       buildFilterButtons(data.categorias);
     } else {
-      // Fallback a categorías personalizadas
       buildFilterButtons([
         { id: 'todos', nombre: 'Todos', icon: '🔥' },
         { id: 'paneles', nombre: 'Paneles Solares', icon: '☀️' },
@@ -2534,18 +2435,16 @@ async function loadCategories() {
   }
 }
 
-// ── BUILD FILTER BUTTONS FROM CATEGORIES ──
 function buildFilterButtons(categorias) {
   const wrap = document.getElementById('productFilters');
-  wrap.innerHTML = ''; // Limpiar
+  wrap.innerHTML = '';
   
   categorias.forEach((c, index) => {
-    const activeClass = index === 0 ? 'active' : ''; // El primero (Todos) es activo
+    const activeClass = index === 0 ? 'active' : '';
     wrap.innerHTML += `<button class="filter-btn ${activeClass}" onclick="filterProducts('${c.id}')">${c.icon || '📦'} ${c.nombre}</button>`;
   });
 }
 
-// ── LOAD PRODUCTS FROM BACKEND ──
 async function loadProducts(catId, page = 1) {
   if (isLoading) return;
   isLoading = true;
@@ -2590,7 +2489,6 @@ async function loadProducts(catId, page = 1) {
   }
 }
 
-// ── RENDER SYSCOM PRODUCTS ──
 function renderSyscomProducts(productos) {
   const grid = document.getElementById('productsGrid');
   grid.innerHTML = '';
@@ -2654,7 +2552,6 @@ function renderSyscomProducts(productos) {
   }, 50);
 }
 
-// ── FILTER PRODUCTS ──
 function filterProducts(catId) {
   currentCatId = catId;
   currentPage = 1;
@@ -2670,7 +2567,6 @@ function loadMore() {
   loadProducts(currentCatId, currentPage + 1);
 }
 
-// ── SHOW PRODUCT DETAIL ──
 async function showSyscomDetail(sku) {
   document.getElementById('modalTitle').textContent = 'Cargando...';
   document.getElementById('modalBody').innerHTML = `<div style="text-align:center;padding:40px;color:var(--gray-400);">⚡ Cargando detalle...</div>`;
@@ -2727,7 +2623,6 @@ async function showSyscomDetail(sku) {
   }
 }
 
-// ── CLOSE MODAL FUNCTION ──
 function closeModal() { 
   document.getElementById('productModal').classList.remove('show');
   document.body.style.overflow = '';
@@ -2737,7 +2632,6 @@ document.getElementById('productModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal(); 
 });
 
-// ── SEARCH IMPROVED ──
 function setupSearch() {
   const input = document.getElementById('searchInput');
   const dropdown = document.getElementById('searchDropdown');
@@ -2835,7 +2729,6 @@ function setupSearch() {
   });
 }
 
-// ── FUNCTIONS FOR TOGGLE FAV ──
 function toggleFav(id, btn) {
   if (favs.has(id)) { 
     favs.delete(id); 
@@ -2848,7 +2741,6 @@ function toggleFav(id, btn) {
   }
 }
 
-// ── CART FUNCTIONS ──
 function addToCart(name, price, imgUrl, cat) {
   const ex = cart.find(i => i.name === name);
   if (ex) ex.qty++;
@@ -2950,7 +2842,6 @@ function checkout() {
   window.open(`https://wa.me/${WA_NUM}?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
-// ── SCROLL REVEAL ──
 function setupScrollReveal() {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -2960,7 +2851,6 @@ function setupScrollReveal() {
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
 
-// ── COUNTERS ──
 function animateCounters() {
   const targets = [{ id:'cnt1', val:350 }, { id:'cnt2', val:620 }, { id:'cnt3', val:1200 }, { id:'cnt4', val:8 }];
   const obs = new IntersectionObserver(entries => {
@@ -2976,7 +2866,6 @@ function animateCounters() {
   if (hero) obs.observe(hero);
 }
 
-// ── CAROUSEL ──
 function startCarousel() {
   setInterval(() => {
     const track = document.getElementById('testimonialsTrack');
@@ -2997,7 +2886,6 @@ function moveCarousel(dir) {
   track.style.transform = `translateX(-${carouselPos * 360}px)`;
 }
 
-// ── CALC ──
 function updateCalc() {
   const recibo = parseFloat(document.getElementById('recibo')?.value) || 3000;
   const tipo = document.getElementById('tipoInstalacion')?.value || 'residencial';
@@ -3024,7 +2912,6 @@ function updateRangeStyle() {
   document.getElementById('reciboVal').textContent = '$' + parseInt(r.value).toLocaleString() + ' MXN / mes';
 }
 
-// ── NEWSLETTER ──
 function subscribeNewsletter() {
   const v = document.getElementById('newsletterEmail')?.value;
   if (!v || !v.includes('@')) { showToast('⚠️ Ingresa un email válido', 'warning'); return; }
@@ -3032,7 +2919,6 @@ function subscribeNewsletter() {
   document.getElementById('newsletterEmail').value = '';
 }
 
-// ── MOBILE NAV ──
 function closeMobileNav() {
   document.getElementById('mobileNav').classList.remove('open');
   document.getElementById('mobileOverlay').classList.remove('show');
@@ -3045,12 +2931,10 @@ document.getElementById('hamburgerBtn').addEventListener('click', () => {
   document.body.style.overflow = 'hidden';
 });
 
-// ── FORM SUBMIT ──
 function submitForm() {
   showToast('📬 Mensaje enviado. Te contactaremos pronto.');
 }
 
-// ── SCROLL TOP ──
 document.getElementById('scrollTopBtn').addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
 
 </script>
