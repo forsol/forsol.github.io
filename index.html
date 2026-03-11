@@ -2101,11 +2101,23 @@ footer {
 </div>
 
 <script>
-// ── CONFIG ──
+// ── CONFIGURACIÓN ACTUALIZADA ──
 const COUPONS = { 'FORSOL10': 10, 'SOLAR15': 15, 'NACIONAL20': 20 };
 const WA_NUM = '526611282417';
-const API_URL = 'http://localhost:3000';
 
+// Detectar si estamos en producción o desarrollo
+const isProduction = window.location.hostname !== 'localhost' && 
+                     window.location.hostname !== '127.0.0.1';
+
+// URL del backend - Usando tu dominio de Vercel
+const API_URL = isProduction 
+  ? 'https://voltmx-backend.vercel.app'  // ← TU BACKEND EN VERCEL
+  : 'http://localhost:3000';
+
+console.log('🌐 Modo:', isProduction ? 'Producción' : 'Desarrollo');
+console.log('📡 Conectando a:', API_URL);
+
+// El resto del código continúa exactamente igual...
 let cart = [];
 let cartDiscount = 0;
 let currentCatId = 'todos';
