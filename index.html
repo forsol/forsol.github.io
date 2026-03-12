@@ -2113,6 +2113,14 @@ const isProduction = window.location.hostname !== 'localhost' &&
 const API_URL = isProduction 
   ? 'https://voltmx-backend.vercel.app'  // ← TU BACKEND EN VERCEL
   : 'http://localhost:3000';
+  const CATALOGO_URL = 'https://raw.githubusercontent.com/forsol/forsol-catalogo/main/catalogo.json';
+let catalogoCache = null;
+async function getCatalogoJSON() {
+  if (catalogoCache) return catalogoCache;
+  const res = await fetch(CATALOGO_URL);
+  catalogoCache = await res.json();
+  return catalogoCache;
+}
 
 console.log('🌐 Modo:', isProduction ? 'Producción' : 'Desarrollo');
 console.log('📡 Conectando a:', API_URL);
@@ -2424,14 +2432,12 @@ async function loadProducts(catId, page = 1) {
   }
 
   try {
-    const url = `${API_URL}/api/productos?categoria=${catId}&pagina=${page}`;
-    const res = await fetch(url);
-    const data = await res.json();
-
-    if (!data.ok) throw new Error(data.error);
-
-    syscomProducts = page === 1 ? data.productos : [...syscomProducts, ...data.productos];
-    totalProducts = data.total || 0;
+       const catalogo = await getCatalogoJSON();
+    const todosProductos = catalogo.categorias[catId] || catalogo.categorias['todos'] || [];
+    const start = (page - 1) * 20;
+    const nuevos = todosProductos.slice(start, start + 20);
+    syscomProducts = page === 1 ? nuevos : [...syscomProducts, ...nuevos];
+    totalProducts = todosProductos.length;
 
     renderSyscomProducts(syscomProducts);
 
