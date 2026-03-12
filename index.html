@@ -2461,8 +2461,8 @@ async function loadProducts(catId, page = 1) {
   try {
        const catalogo = await getCatalogoJSON();
     const todosProductos = catalogo.categorias[catId] || catalogo.categorias['todos'] || [];
-    const start = (page - 1) * 20;
-    const nuevos = todosProductos.slice(start, start + 20);
+    const start = (page - 1) * 10;
+    const nuevos = todosProductos.slice(start, start + 10);
     syscomProducts = page === 1 ? nuevos : [...syscomProducts, ...nuevos];
     totalProducts = todosProductos.length;
 
