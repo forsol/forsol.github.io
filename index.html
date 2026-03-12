@@ -2245,21 +2245,24 @@ function performSearch(query) {
 
 async function fetchSearchResults(query, page) {
   try {
-    const url = `${API_URL}/api/buscar?q=${encodeURIComponent(query)}&pagina=${page}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    
-    if (!data.ok) throw new Error(data.error);
-    
-    const productos = data.productos || [];
-    
+   const catalogo = await getCatalogoJSON();
+    const todos = catalogo.categorias['todos'] || [];
+    const qLower = query.toLowerCase().trim();
+    const filtered = todos.filter(p => {
+      const titulo = (p.titulo || '').toLowerCase();
+      const marca = (p.marca || '').toLowerCase();
+      const modelo = (p.modelo || '').toLowerCase();
+      return titulo.includes(qLower) || marca.includes(qLower) || modelo.includes(qLower);
+    });
+    const start = (page - 1) * 20;
+    const productos = filtered.slice(start, start + 20);
     if (page === 1) {
       searchResults = productos;
     } else {
       searchResults = [...searchResults, ...productos];
     }
-    
-    displaySearchResults(productos, page === 1, data.total || productos.length);
+
+    displaySearchResults(productos, page === 1, filtered.length);
     
   } catch (err) {
     console.error('Error en búsqueda:', err);
