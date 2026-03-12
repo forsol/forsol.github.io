@@ -1480,6 +1480,7 @@ footer {
   .product-card { font-size: 11px; }
   .product-img { height: 120px !important; }
   .price-current { font-size: 13px !important; }
+  .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
@@ -2486,7 +2487,6 @@ async function loadProducts(catId, page = 1) {
 }
 
 function renderSyscomProducts(productos) {
-  alert('Render: ' + productos.length);
   const grid = document.getElementById('productsGrid');
   grid.innerHTML = '';
 
