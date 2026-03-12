@@ -2247,8 +2247,25 @@ async function fetchSearchResults(query, page) {
   try {
    const catalogo = await getCatalogoJSON();
     const todos = catalogo.categorias['todos'] || [];
+    const tagsMap = {
+      'panel': 'paneles', 'paneles': 'paneles', 'solar': 'paneles', 'solares': 'paneles', 'modulo': 'paneles', 'módulo': 'paneles',
+      'inversor': 'inversores', 'inversores': 'inversores', 'inverter': 'inversores',
+      'microinversor': 'microinversores', 'microinversores': 'microinversores', 'micro': 'microinversores',
+      'bateria': 'baterias', 'baterías': 'baterias', 'batería': 'baterias', 'baterias': 'baterias', 'acumulador': 'baterias',
+      'controlador': 'controladores', 'controladores': 'controladores', 'regulador': 'controladores',
+      'estructura': 'estructuras', 'estructuras': 'estructuras', 'montaje': 'estructuras', 'soporte': 'estructuras',
+      'kit': 'kits', 'kits': 'kits',
+      'offgrid': 'kits-offgrid', 'off grid': 'kits-offgrid', 'off-grid': 'kits-offgrid',
+      'monitoreo': 'monitoreo', 'monitor': 'monitoreo', 'medidor': 'monitoreo',
+      'herramienta': 'herramientas', 'herramientas': 'herramientas', 'cable': 'herramientas', 'cables': 'herramientas', 'conector': 'herramientas'
+    };
+    const normalize = t => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    const qNorm = normalize(query);
+    const catMatch = tagsMap[qNorm];
     const qLower = query.toLowerCase().trim();
-    const filtered = todos.filter(p => {
+    const filtered = catMatch
+      ? (catalogo.categorias[catMatch] || [])
+      : todos.filter(p => {
       const titulo = (p.titulo || '').toLowerCase();
       const marca = (p.marca || '').toLowerCase();
       const modelo = (p.modelo || '').toLowerCase();
