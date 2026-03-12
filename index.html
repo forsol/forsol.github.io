@@ -2118,9 +2118,11 @@ const API_URL = isProduction
 let catalogoCache = null;
 async function getCatalogoJSON() {
   if (catalogoCache) return catalogoCache;
-  const res = await fetch(CATALOGO_URL);
-  catalogoCache = await res.json();
-  return catalogoCache;
+  if (getCatalogoJSON._loading) return getCatalogoJSON._loading;
+  getCatalogoJSON._loading = fetch(CATALOGO_URL)
+    .then(res => res.json())
+    .then(data => { catalogoCache = data; getCatalogoJSON._loading = null; return data; });
+  return getCatalogoJSON._loading;
 }
 
 console.log('🌐 Modo:', isProduction ? 'Producción' : 'Desarrollo');
