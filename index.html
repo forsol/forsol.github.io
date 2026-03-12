@@ -2459,6 +2459,7 @@ async function loadProducts(catId, page = 1) {
     const todosProductos = catalogo.categorias[catId] || catalogo.categorias['todos'] || [];
     const start = (page - 1) * 20;
     const nuevos = todosProductos.slice(start, start + 20);
+    alert('Total: ' + todosProductos.length + ' | Nuevos: ' + nuevos.length);
     syscomProducts = page === 1 ? nuevos : [...syscomProducts, ...nuevos];
     totalProducts = todosProductos.length;
 
@@ -2469,7 +2470,6 @@ async function loadProducts(catId, page = 1) {
 
   } catch (err) {
     console.error('Error cargando productos:', err);
-alert('Error: ' + err.message);
     grid.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--gray-400);">
         <div style="font-size:36px;margin-bottom:12px;">⚠️</div>
