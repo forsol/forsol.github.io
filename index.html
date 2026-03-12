@@ -747,7 +747,7 @@ section {
 }
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 16px;
 }
 .product-card {
@@ -2459,7 +2459,6 @@ async function loadProducts(catId, page = 1) {
     const todosProductos = catalogo.categorias[catId] || catalogo.categorias['todos'] || [];
     const start = (page - 1) * 20;
     const nuevos = todosProductos.slice(start, start + 20);
-    alert('Total: ' + todosProductos.length + ' | Nuevos: ' + nuevos.length);
     syscomProducts = page === 1 ? nuevos : [...syscomProducts, ...nuevos];
     totalProducts = todosProductos.length;
 
