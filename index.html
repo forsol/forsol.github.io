@@ -2486,6 +2486,7 @@ async function loadProducts(catId, page = 1) {
 }
 
 function renderSyscomProducts(productos) {
+  alert('Render: ' + productos.length);
   const grid = document.getElementById('productsGrid');
   grid.innerHTML = '';
 
