@@ -1653,6 +1653,7 @@ footer {
     <div class="search-section" style="margin-bottom: 30px; text-align: center;">
       <div style="max-width: 600px; margin: 0 auto; position: relative;">
         <input type="text" id="searchInputProducts" placeholder="🔍 Buscar paneles solares, inversores, baterías..." 
+               onkeydown="if(event.key==='Enter') performSearch()"
                style="width: 100%; padding: 15px 20px; border-radius: 50px; border: 2px solid rgba(0,87,255,0.3); 
                       background: var(--dark-3); color: var(--white); font-size: 16px;">
         <button onclick="performSearch()" 
