@@ -2410,6 +2410,13 @@ async function loadCategories() {
     
     if (data.ok && data.categorias) {
       buildFilterButtons(data.categorias);
+setTimeout(() => {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    if (btn.getAttribute('onclick')?.includes("'herramientas'")) {
+      btn.innerHTML = btn.innerHTML.replace('Herramientas', 'Herramientas/Cables');
+    }
+  });
+}, 100); 
     } else {
       buildFilterButtons([
         { id: 'todos', nombre: 'Todos', icon: '🔥' },
