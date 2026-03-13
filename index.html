@@ -2520,7 +2520,7 @@ function renderSyscomProducts(productos) {
     grid.innerHTML += `
     <div class="product-card reveal" data-id="${p.producto_id}" onclick="showSyscomDetail('${p.producto_id}')" style="cursor:pointer;">
       ${badge ? `<span class="product-badge badge-hot">🔥 Destacado</span>` : ''}
-      ${!enStock ? `<span class="product-badge" style="background:#444;color:#aaa;left:auto;right:12px;">Sin stock</span>` : ''}
+      ${!enStock ? `<span class="product-badge" style="background:#444;color:#aaa;left:auto;right:12px;">Agotado</span>` : ''}
       <div class="product-img" style="background:#0d1a30;position:relative;">
         ${imgHtml}
         <button class="product-fav ${favs.has(p.producto_id)?'active':''}" onclick="toggleFav('${p.producto_id}', this)">♥</button>
@@ -2541,7 +2541,7 @@ function renderSyscomProducts(productos) {
         <div class="product-actions">
           <button class="btn-add" ${!enStock ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''} 
             onclick="addToCart('${nombre.substring(0,50).replace(/'/g, "\\'")}',${precio},'${imgUrl}','${marca}')">
-            🛒 ${enStock ? 'Agregar' : 'Sin stock'}
+            🛒 ${enStock ? 'Agregar' : 'Agotado'}
           </button>
           <button class="btn-detail" onclick="showSyscomDetail('${p.producto_id}')">🔍</button>
         </div>
@@ -2597,7 +2597,7 @@ async function showSyscomDetail(productoId) {
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
         <div style="background:rgba(0,87,255,0.08);border-radius:10px;padding:15px;text-align:center;">
           <div style="font-size:12px;color:var(--gray-400);margin-bottom:5px;">Stock disponible</div>
-          <div style="font-size:24px;font-weight:700;color:${stock>0?'var(--success)':'#ff6b6b'}">${stock > 0 ? stock + ' pzas' : 'Sin stock'}</div>
+          <div style="font-size:24px;font-weight:700;color:${stock>0?'var(--success)':'#ff6b6b'}">${stock > 0 ? stock + ' pzas' : 'Agotado'}</div>
         </div>
         <div style="background:rgba(0,87,255,0.08);border-radius:10px;padding:15px;text-align:center;">
           <div style="font-size:12px;color:var(--gray-400);margin-bottom:5px;">Garantía</div>
@@ -2613,7 +2613,7 @@ async function showSyscomDetail(productoId) {
       <button class="btn-primary" style="width:100%;justify-content:center;padding:16px;font-size:16px;"
         ${!stock ? 'disabled style="opacity:0.5"' : ''}
         onclick="addToCart('${nombre.substring(0,50).replace(/'/g,"\\'")}',${precio},'${imgUrl}','${marca}');closeModal();">
-        🛒 ${stock > 0 ? 'Agregar al Carrito' : 'Sin stock'}
+        🛒 ${stock > 0 ? 'Agregar al Carrito' : 'Agotado'}
       </button>
     `;
   } catch(err) {
