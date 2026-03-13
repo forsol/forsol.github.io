@@ -2278,8 +2278,8 @@ async function fetchSearchResults(query, page) {
       const modelo = (p.modelo || '').toLowerCase();
       return titulo.includes(qLower) || marca.includes(qLower) || modelo.includes(qLower);
     });
-    const start = (page - 1) * 20;
-    const productos = filtered.slice(start, start + 20);
+    const start = (page - 1) * 14;
+    const productos = filtered.slice(start, start + 14);
     if (page === 1) {
       searchResults = productos;
     } else {
