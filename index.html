@@ -2422,7 +2422,7 @@ async function loadCategories() {
         { id: 'kits', nombre: 'Kits Solares', icon: '📦' },
         { id: 'kits-offgrid', nombre: 'Kits Offgrid', icon: '🌲' },
         { id: 'monitoreo', nombre: 'Monitoreo', icon: '📊' },
-        { id: 'herramientas', nombre: 'Herramientas', icon: '🛠️' }
+        { id: 'herramientas', nombre: 'Herramientas/Cables', icon: '🛠️' }
       ]);
     }
   } catch (err) {
@@ -2511,7 +2511,7 @@ function renderSyscomProducts(productos) {
       : `<span style="font-size:48px">📦</span>`;
 
     grid.innerHTML += `
-    <div class="product-card reveal" data-id="${p.producto_id}">
+    <div class="product-card reveal" data-id="${p.producto_id}" onclick="showSyscomDetail('${p.modelo}')" style="cursor:pointer;">
       ${badge ? `<span class="product-badge badge-hot">🔥 Destacado</span>` : ''}
       ${!enStock ? `<span class="product-badge" style="background:#444;color:#aaa;left:auto;right:12px;">Sin stock</span>` : ''}
       <div class="product-img" style="background:#0d1a30;position:relative;">
