@@ -2356,7 +2356,7 @@ function displaySearchResults(productos, isNewSearch, total) {
 
     grid.innerHTML += `
     <div class="product-card reveal" data-id="${p.producto_id}">
-      ${!enStock ? `<span class="product-badge" style="background:#444;color:#aaa;right:12px;">Sin stock</span>` : ''}
+      ${!enStock ? `<span class="product-badge" style="background:#444;color:#aaa;right:12px;">Agotado</span>` : ''}
       <div class="product-img" style="background:#0d1a30;">
         ${imgHtml}
         <button class="product-fav ${favs && favs.has(p.producto_id) ? 'active' : ''}" onclick="toggleFav('${p.producto_id}', this)">♥</button>
@@ -2374,7 +2374,7 @@ function displaySearchResults(productos, isNewSearch, total) {
         <div class="product-actions">
           <button class="btn-add" ${!enStock ? 'disabled style="opacity:0.5"' : ''} 
             onclick="addToCart('${nombre.substring(0,50).replace(/'/g, "\\'")}',${precio},'${imgUrl}','${marca}')">
-            🛒 ${enStock ? 'Agregar' : 'Sin stock'}
+            🛒 ${enStock ? 'Agregar' : 'Agotado'}
           </button>
           <button class="btn-detail" onclick="showSyscomDetail('${p.producto_id}')">🔍</button>
         </div>
