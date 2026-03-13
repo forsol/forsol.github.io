@@ -2549,11 +2549,7 @@ function renderSyscomProducts(productos) {
     </div>`;
   });
 
-  setTimeout(() => {
-    document.querySelectorAll('.reveal').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight + 100) el.classList.add('visible');
-    });
-  }, 50);
+document.querySelectorAll('#productsGrid .reveal').forEach(el => el.classList.add('visible'));
 }
 
 function filterProducts(catId) {
