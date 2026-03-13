@@ -2564,16 +2564,17 @@ function loadMore() {
   loadProducts(currentCatId, currentPage + 1);
 }
 
-async function showSyscomDetail(sku) {
+async function showSyscomDetail(productoId) {
   document.getElementById('modalTitle').textContent = 'Cargando...';
   document.getElementById('modalBody').innerHTML = `<div style="text-align:center;padding:40px;color:var(--gray-400);">⚡ Cargando detalle...</div>`;
   document.getElementById('productModal').classList.add('show');
   document.body.style.overflow = 'hidden';
 
   try {
-    const res = await fetch(`${API_URL}/api/productos/${sku}`);
-    const data = await res.json();
-    const p = data.producto;
+    const catalogo = await getCatalogoJSON();
+    const todos = catalogo.categorias['todos'] || [];
+    const p = todos.find(x => x.producto_id == productoId);
+    if (!p) throw new Error('No encontrado');
 
     const nombre = p.titulo || '';
     const precio = p.precio_publico || 0;
@@ -2590,7 +2591,6 @@ async function showSyscomDetail(sku) {
       </div>
       <div style="font-size:14px;color:var(--blue-light);font-weight:600;margin-bottom:8px;">${marca} ${modelo ? '· ' + modelo : ''}</div>
       <h3 style="font-size:18px;font-weight:600;margin-bottom:16px;line-height:1.4;">${nombre}</h3>
-      
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
         <div style="background:rgba(0,87,255,0.08);border-radius:10px;padding:15px;text-align:center;">
           <div style="font-size:12px;color:var(--gray-400);margin-bottom:5px;">Stock disponible</div>
@@ -2601,15 +2601,13 @@ async function showSyscomDetail(sku) {
           <div style="font-size:24px;font-weight:700;color:var(--electric)">${garantia}</div>
         </div>
       </div>
-      
       <div style="background:rgba(0,212,255,0.1);border-radius:12px;padding:20px;margin-bottom:20px;text-align:center;">
         <div style="font-size:14px;color:var(--gray-400);margin-bottom:5px;">Precio</div>
         <div style="font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--electric);">
           $${precio.toLocaleString('es-MX', {minimumFractionDigits:2})} MXN
         </div>
       </div>
-      
-      <button class="btn-primary" style="width:100%;justify-content:center;padding:16px;font-size:16px;" 
+      <button class="btn-primary" style="width:100%;justify-content:center;padding:16px;font-size:16px;"
         ${!stock ? 'disabled style="opacity:0.5"' : ''}
         onclick="addToCart('${nombre.substring(0,50).replace(/'/g,"\\'")}',${precio},'${imgUrl}','${marca}');closeModal();">
         🛒 ${stock > 0 ? 'Agregar al Carrito' : 'Sin stock'}
