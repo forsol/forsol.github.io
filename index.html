@@ -2511,7 +2511,7 @@ function renderSyscomProducts(productos) {
       : `<span style="font-size:48px">📦</span>`;
 
     grid.innerHTML += `
-    <div class="product-card reveal" data-id="${p.producto_id}" onclick="showSyscomDetail('${p.modelo}')" style="cursor:pointer;">
+    <div class="product-card reveal" data-id="${p.producto_id}" onclick="showSyscomDetail('${p.producto_id}')" style="cursor:pointer;">
       ${badge ? `<span class="product-badge badge-hot">🔥 Destacado</span>` : ''}
       ${!enStock ? `<span class="product-badge" style="background:#444;color:#aaa;left:auto;right:12px;">Sin stock</span>` : ''}
       <div class="product-img" style="background:#0d1a30;position:relative;">
